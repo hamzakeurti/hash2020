@@ -1,16 +1,17 @@
-def evaluate_solution(D,A,libraries_list,books_val):
+def evaluate_solution(D,selected_libraries,books_val):
+    A = len(selected_libraries)
     scanned_books = set()
     signup_day = []
     d = 0
     for l in range(A):
-        d = d+libraries_list[l].signup
+        d = d+selected_libraries[l].signup
         # if we vannot signup all selected libraries solution is 0
         if d>D:
             return 0
         signup_day.append(d)
     # send books (=value)
     for l in range(A):
-        number_books = min((D - signup_day[l])*libraries_list[l].book_rate, libraries_list[l].books)
+        number_books = min((D - signup_day[l])*selected_libraries[l].books_rate, selected_libraries[l].n_books)
         for book in range(number_books):
             scanned_books.add(book)
 

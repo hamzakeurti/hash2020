@@ -15,5 +15,5 @@ B,L,D,books_values,libraries = input.parse_file(filename)
 
 # algo
 selected_libraries = algos.greedy_algo(D,libraries,books_values)
-
+print(output.evaluate_solution(D,selected_libraries,books_values))
 # output
