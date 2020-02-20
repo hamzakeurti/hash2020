@@ -5,9 +5,9 @@ class Library(object):
         self.signup = signup
         self.books_rate = books_rate
     def __repr__(self):
-        return f'Library : \nsignup {signup} \nbooks_rate {books_rate} \nbooks_list {books_list}'
+        return f'Library : signup:{self.signup} books_rate:{self.books_rate} books_list:{self.books_list}'
     def __str__(self):
-        return f'Library : \nsignup {signup} \nbooks_rate {books_rate} \nbooks_list {books_list}'
+        return f'Library : signup:{self.signup} books_rate:{self.books_rate} books_list:{self.books_list}'
 
 
 def parse_file(filename):
