@@ -17,18 +17,22 @@ B,L,D,books_values,libraries = input.parse_file(filename)
 # Finding greedily a sequence of libraries based on number of books that are not already in the previous libraries
 current_D = 0
 previous_libraries = defaultdict(int)
-best_score = -1
+selected_libraries = []
+while current_D<D:
+    best_score = -1
 
-for library in libraries:
-    library_score = algos.Library_score(Library,previous_libraries,D,current_D)
-    if library_score > best_score:
-        best_score = library_score
-        best_library = library
+    for library in libraries:
+        library_score = algos.Library_score(Library,previous_libraries,D,current_D)
+        if library_score > best_score:
+            best_score = library_score
+            best_library = library
 
-current_D += best_library.signup
+    current_D += best_library.signup
 
-for book in library.books_list:
-    previous_libraries[book] = 0
-libraries.remove(best_library)
+    for book in library.books_list:
+        previous_libraries[book] = 0
+        
+    selected_libraries.append(best_library)
+    libraries.remove(best_library)
 
 # output
