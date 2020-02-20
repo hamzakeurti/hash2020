@@ -43,6 +43,6 @@ current_D = 0
 for library in selected_libraries:
     current_D += library.signup
     possible_books = (D-current_D) * library.books_rate
-    books_to_send = sorted(library.books_list,key=lambda x: books_values[x])
+    books_to_send = sorted(library.books_list,key=lambda x: books_values[x])[:min(possible_books,len(library.books_list)-1)]
 
 # output
