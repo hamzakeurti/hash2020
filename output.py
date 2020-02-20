@@ -1,25 +1,24 @@
 def evaluate_solution(D,A,libraries_list,books_val):
-    signing_up = 0
-    signed_up = {}
-    score = 0
-    scanned_books = []
-    for d in range(D):
-        # signing up process
-        day_spent = False
-        while (signing_up <= A) and (not day_spent):
-            if libraries_list[signing_up]["signup"] = 0:
-                signed_up[signing_up] = d
-                signing_up += 1
-                
-                if signing_up > A:
-                    break
-            if libraries_list[signing_up]["signup"] > 0:
-                libraries_list[signing_up]["signup"] -= 1
-                day_spent = True
-                
-        
+    scanned_books = set()
+    signup_day = []
+    d = 0
+    for l in range(A):
+        d = d+libraries_list[l].signup
+        # if we vannot signup all selected libraries solution is 0
+        if d>D:
+            return 0
+        signup_day.append(d)
     # send books (=value)
-    for l in signed_up:
+    for l in range(A):
+        number_books = min((D - signup_day[l])*libraries_list[l].book_rate, libraries_list[l].books)
+        for book in range(number_books):
+            scanned_books.add(book)
+
+    return sum(list(map(books_val.__getitem__,scanned_books)))    
+
+
+
+        
         
         
 
