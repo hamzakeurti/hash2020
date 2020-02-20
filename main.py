@@ -2,10 +2,10 @@ import os.path as path
 import input,output,algos
 from collections import defaultdict
 INPUT_DIR = "inputs"
-INPUT_FILE = "___"
+INPUT_FILE = "e_so_many_books.txt"
 
 OUTPUT_DIR = "outputs"
-OUTPUT_FILE = "solution"
+OUTPUT_FILE = "e_so_many_books.txt"
 
 
 # input
