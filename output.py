@@ -23,6 +23,14 @@ def evaluate_solution(D,selected_libraries,books_val):
         
         
 
-def write_solution(solution,filename):
+def make_submission(selected_libraries,filename):
+        
     with open(filename,"w") as f:
-        f.write(solution)
+        A = len(selected_libraries)
+        f.write(str(A))
+        for library in selected_libraries:
+            f.write(" ".join(map(str,[library.id,len(library.selected_books)])))
+            f.write(" ".join(map(str,library.selected_books)))
+
+        
+    
