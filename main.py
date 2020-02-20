@@ -18,4 +18,4 @@ selected_libraries = algos.greedy_algo(D,libraries,books_values)
 print(output.evaluate_solution(D,selected_libraries,books_values))
 
 # output
-output.make_submission(selected_libraries,path.join(OUTPUT_DIR,OUTPUT_FILE))
+output.write_file(selected_libraries,path.join(OUTPUT_DIR,OUTPUT_FILE))
