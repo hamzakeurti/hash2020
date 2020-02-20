@@ -30,10 +30,19 @@ while current_D<D:
 
     current_D += best_library.signup
 
+    if current_D>=D:
+        break
+
     for book in library.books_list:
         previous_libraries[book] = 0
         
     selected_libraries.append(best_library)
     libraries.remove(best_library)
+
+current_D = 0
+for library in selected_libraries:
+    current_D += library.signup
+    possible_books = (D-current_D) * library.books_rate
+    books_to_send = sorted(library.books_list,key=lambda x: books_values[x])
 
 # output
