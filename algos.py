@@ -23,6 +23,7 @@ def greedy_algo(D,libraries,books_values):
             if library_score > best_score:
                 best_score = library_score
                 best_library = library
+            
 
         current_D += best_library.signup
 
@@ -31,15 +32,15 @@ def greedy_algo(D,libraries,books_values):
 
         for book in library.books_list:
             previous_libraries[book] = 0
-            
-        selected_libraries.append(best_library)
-        libraries.remove(best_library)
+        if best_score >-1:
+            selected_libraries.append(best_library)
+            libraries.remove(best_library)
 
     current_D = 0
     for library in selected_libraries:
         current_D += library.signup
         possible_books = (D-current_D) * library.books_rate
-        library.selected_books = sorted(library.books_list,key=lambda x: books_values[x])[:min(possible_books,len(library.books_list)-1)]
+        library.selected_books = sorted(library.books_list,key=lambda x: books_values[x])[:min(possible_books,len(library.books_list))]
 
     return selected_libraries
 
